@@ -8,7 +8,7 @@ const TabSlider = ({ sliderData }: { sliderData: sliderDataType }) => {
   return (
     <div className="flex gap-2 px-4 overflow-y-scroll">
       {sliderData.map((item) => (
-        <div className="w-72">
+        <div className="w-72" key={item.heading}>
           <div
             className={`bg-black w-72  rounded-t-xl px-4 py-1   ${item.color}`}
           >

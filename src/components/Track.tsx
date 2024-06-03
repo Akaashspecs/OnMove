@@ -1,4 +1,4 @@
-import { FuturePlanData, TrackContent, trackParagraph } from "../Utils/helpers";
+import { TrackContent, trackParagraph } from "../Utils/helpers";
 import Heading from "./Heading";
 import TabSlider from "./TabSlider";
 

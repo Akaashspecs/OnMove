@@ -1,4 +1,4 @@
-import { objectivesTabsData, StretegiesToBuild } from "../Utils/helpers";
+import { StretegiesToBuild } from "../Utils/helpers";
 import Heading from "./Heading";
 import TabSlider from "./TabSlider";
 

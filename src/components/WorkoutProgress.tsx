@@ -26,7 +26,21 @@ const WorkoutProgress = () => {
     { name: "April", uv: 23 },
   ];
 
-  const getParabolicPath = (x, y, width, height, controlPointOffset, item) =>
+  const getParabolicPath = ({
+    x,
+    y,
+    width,
+    height,
+    controlPointOffset,
+    item,
+  }: {
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+    controlPointOffset: number;
+    item: number;
+  }) =>
     `M${x - controlPointOffset},${y + height}
    Q${x + width / 2},${
       (height === 18.75 && y - height + item * 4) ||
@@ -37,22 +51,27 @@ const WorkoutProgress = () => {
     } ${x + width + controlPointOffset},${y + height} 
    Z`;
 
-  const getNormalParabolicPath = (
+  const getNormalParabolicPath = ({
     x,
     y,
     width,
     height,
     controlPointOffset,
-    item
-  ) =>
+  }: {
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+    controlPointOffset: number;
+  }) =>
     `M${x - controlPointOffset},${y + height}
    Q${x + width / 2},${y - height} ${x + width + controlPointOffset},${
       y + height
     } 
    Z`;
 
-  const TriangleBar = (props) => {
-    const { fill, x, y, width, height, controlPointOffset, data } = props;
+  const TriangleBar = (props: any) => {
+    const { x, y, width, height, controlPointOffset } = props;
 
     const fillColor = `${
       (height >= 50 && height <= 100 && "#F8C255") ||
@@ -69,14 +88,14 @@ const WorkoutProgress = () => {
             return (
               <path
                 key={index}
-                d={getParabolicPath(
+                d={getParabolicPath({
                   x,
                   y,
                   width,
                   height,
                   controlPointOffset,
-                  item
-                )}
+                  item,
+                })}
                 fill={fillColor}
                 stroke={`${
                   (height >= 50 && height <= 100 && "#c69b44") ||
@@ -90,14 +109,13 @@ const WorkoutProgress = () => {
             return (
               <path
                 key={index}
-                d={getNormalParabolicPath(
+                d={getNormalParabolicPath({
                   x,
                   y,
                   width,
                   height,
                   controlPointOffset,
-                  item
-                )}
+                })}
                 fill={fillColor}
                 stroke={`${
                   (height >= 50 && height <= 100 && "#c69b44") ||

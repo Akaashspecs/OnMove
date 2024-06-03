@@ -4,7 +4,10 @@ const JourneyStatus = () => (
   <div className="flex gap-2">
     {journeystatus.map((item) => {
       return (
-        <div className="bg-mediumGrey h-[90px] w-3 rounded-2xl relative">
+        <div
+          key={item.id}
+          className="bg-mediumGrey h-[90px] w-3 rounded-2xl relative"
+        >
           <div
             style={{
               height: item.percentage,

@@ -1,13 +1,13 @@
 export const journeystatus = [
-  { percentage: "55%", color: "bg-lightGreen" },
-  { percentage: "35%", color: "bg-lightRed" },
-  { percentage: "78%", color: "bg-lightGreen" },
-  { percentage: "85%", color: "bg-lightGreen" },
-  { percentage: "20%", color: "bg-lightRed" },
-  { percentage: "50%", color: "bg-lightYellow" },
-  { percentage: "50%", color: "bg-lightYellow" },
-  { percentage: "85%", color: "bg-lightGreen" },
-  { percentage: "70%", color: "bg-lightGreen" },
+  { id: 1, percentage: "55%", color: "bg-lightGreen" },
+  { id: 2, percentage: "35%", color: "bg-lightRed" },
+  { id: 3, percentage: "78%", color: "bg-lightGreen" },
+  { id: 4, percentage: "85%", color: "bg-lightGreen" },
+  { id: 5, percentage: "20%", color: "bg-lightRed" },
+  { id: 6, percentage: "50%", color: "bg-lightYellow" },
+  { id: 7, percentage: "50%", color: "bg-lightYellow" },
+  { id: 8, percentage: "85%", color: "bg-lightGreen" },
+  { id: 9, percentage: "70%", color: "bg-lightGreen" },
 ];
 
 export const objectivesTabsData = [

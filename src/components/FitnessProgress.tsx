@@ -1,8 +1,7 @@
-import { fitnessScoreProress, workoutProgressContent } from "../Utils/helpers";
+import { fitnessScoreProress } from "../Utils/helpers";
 import Heading from "./Heading";
 import { useEffect, useState } from "react";
-import { CartesianGrid, Line, LineChart, XAxis, YAxis, Defs } from "recharts";
-import { RenderCustomizedLabel } from "./CustomizedLabel";
+import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts";
 import { RenderCustomizedProgressLabel } from "./CustomizedProgressLabel";
 
 const FitnessProgress = () => {
