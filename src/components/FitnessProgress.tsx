@@ -1,7 +1,14 @@
 import { fitnessScoreProress } from "../Utils/helpers";
 import Heading from "./Heading";
 import { useEffect, useState } from "react";
-import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts";
+import {
+  CartesianGrid,
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  XAxis,
+  YAxis,
+} from "recharts";
 import { RenderCustomizedProgressLabel } from "./CustomizedProgressLabel";
 
 const FitnessProgress = () => {
@@ -31,9 +38,9 @@ const FitnessProgress = () => {
   useEffect(() => {
     // Update the chart width when the window is resized
     const handleResize = () => {
-      setChartWidth(window.innerWidth < 430 ? window.innerWidth - 20 : 400);
+      setChartWidth(window.innerWidth < 430 ? window.innerWidth - 5 : 400);
     };
-
+    handleResize();
     window.addEventListener("resize", handleResize);
 
     return () => {
@@ -56,49 +63,46 @@ const FitnessProgress = () => {
         </>
       )}
       <div className="mt-4 ">
-        <LineChart
-          width={chartWidth}
-          height={200}
-          data={data}
-          margin={{ top: 20, bottom: 2 }}
-        >
-          <XAxis
-            padding={{ left: 6 }}
-            dataKey="name"
-            label={<RenderCustomizedProgressLabel chartWidth={chartWidth} />}
-            tick={{ width: 80 }}
-            tickSize={3}
-          />
-          <YAxis
-            label={{
-              value: "TOTAL SCORE",
-              angle: -90,
-              fontSize: 12,
-              position: "insideBottomLeft",
-              offset: 35,
-            }}
-            axisLine={false}
-            className="mt-7"
-          />
-          <CartesianGrid opacity={0.3} vertical={false} />
-          <defs>
-            <linearGradient id="gradient" x1="8%" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#58C778" stopOpacity={0.8} />
-              <stop offset="30%" stopColor="#F8C255" stopOpacity={0.7} />
-              <stop offset="90%" stopColor="#FD5356" stopOpacity={0.9} />
-            </linearGradient>
-          </defs>
-          <Line
-            dot={false}
-            type="linear"
-            dataKey="uv"
-            stroke="url(#gradient)"
-            strokeWidth={3}
-            isAnimationActive={false}
-          >
-            {" "}
-          </Line>
-        </LineChart>
+        <ResponsiveContainer width="95%" height={200}>
+          <LineChart data={data} margin={{ top: 20, bottom: 2 }}>
+            <XAxis
+              padding={{ left: 6 }}
+              dataKey="name"
+              label={<RenderCustomizedProgressLabel chartWidth={chartWidth} />}
+              tick={{ width: 80 }}
+              tickSize={3}
+            />
+            <YAxis
+              label={{
+                value: "TOTAL SCORE",
+                angle: -90,
+                fontSize: 12,
+                position: "insideBottomLeft",
+                offset: 35,
+              }}
+              axisLine={false}
+              className="mt-7"
+            />
+            <CartesianGrid opacity={0.3} vertical={false} />
+            <defs>
+              <linearGradient id="gradient" x1="8%" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="#58C778" stopOpacity={0.8} />
+                <stop offset="30%" stopColor="#F8C255" stopOpacity={0.7} />
+                <stop offset="90%" stopColor="#FD5356" stopOpacity={0.9} />
+              </linearGradient>
+            </defs>
+            <Line
+              dot={false}
+              type="linear"
+              dataKey="uv"
+              stroke="url(#gradient)"
+              strokeWidth={3}
+              isAnimationActive={false}
+            >
+              {" "}
+            </Line>
+          </LineChart>
+        </ResponsiveContainer>
       </div>
       <div
         className={`text-textWhite px-4 mt-3 ${

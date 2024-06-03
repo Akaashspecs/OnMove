@@ -10,7 +10,7 @@ export const RenderCustomizedProgressLabel = ({
     <>
       <text
         dy={8}
-        dx={chartWidth - 230}
+        dx={110}
         textAnchor="start"
         fill="#666" // Set the text color
         fontSize={fontSize} // Set the font size

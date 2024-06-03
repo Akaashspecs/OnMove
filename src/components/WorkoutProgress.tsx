@@ -7,6 +7,7 @@ import {
   ComposedChart,
   Line,
   CartesianGrid,
+  ResponsiveContainer,
 } from "recharts";
 import { workoutProgressContent } from "../Utils/helpers";
 import { RenderCustomizedLabel } from "./CustomizedLabel";
@@ -137,7 +138,7 @@ const WorkoutProgress = () => {
     const handleResize = () => {
       setChartWidth(window.innerWidth < 430 ? window.innerWidth - 20 : 400);
     };
-
+    handleResize();
     window.addEventListener("resize", handleResize);
 
     return () => {
@@ -155,44 +156,40 @@ const WorkoutProgress = () => {
       </span>
       <Heading text="Workout Consistency Progress" headingClass="mt-0 mb-4" />
       <div className="mt-7">
-        <ComposedChart
-          barSize={58}
-          width={chartWidth}
-          height={200}
-          data={data}
-          margin={{ top: 20 }}
-        >
-          <XAxis
-            padding={{ left: 6 }}
-            dataKey="name"
-            label={<RenderCustomizedLabel chartWidth={chartWidth} />}
-          />
-          <YAxis
-            label={{
-              value: "NO. OF WORKOUTS",
-              angle: -90,
-              fontSize: 12,
-              position: "insideBottomLeft",
-              offset: 25,
-            }}
-            axisLine={false}
-            className="mt-7"
-          />
-          <CartesianGrid opacity={0.3} vertical={false} />
-          <Bar
-            dataKey="uv"
-            stroke="#000000"
-            opacity={90}
-            shape={<TriangleBar controlPointOffset={15} data={data} />}
-          />
-          <Line
-            dot={false}
-            type="linear"
-            dataKey="uv"
-            stroke="#7D86EB"
-            strokeWidth={3}
-          />
-        </ComposedChart>
+        <ResponsiveContainer width="95%" height={200}>
+          <ComposedChart barSize={58} data={data} margin={{ top: 20 }}>
+            <XAxis
+              padding={{ left: 6, right: 8 }}
+              dataKey="name"
+              label={<RenderCustomizedLabel chartWidth={chartWidth} />}
+            />
+            <YAxis
+              label={{
+                value: "NO. OF WORKOUTS",
+                angle: -90,
+                fontSize: 12,
+                position: "insideBottomLeft",
+                offset: 25,
+              }}
+              axisLine={false}
+              className="mt-7"
+            />
+            <CartesianGrid opacity={0.3} vertical={false} />
+            <Bar
+              dataKey="uv"
+              stroke="#000000"
+              opacity={90}
+              shape={<TriangleBar controlPointOffset={15} data={data} />}
+            />
+            <Line
+              dot={false}
+              type="linear"
+              dataKey="uv"
+              stroke="#7D86EB"
+              strokeWidth={3}
+            />
+          </ComposedChart>
+        </ResponsiveContainer>
       </div>
       <div
         className={`text-textWhite px-4 mt-3 ${
