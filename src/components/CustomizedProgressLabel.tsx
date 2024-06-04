@@ -9,7 +9,9 @@ export const RenderCustomizedProgressLabel = ({
   return (
     <>
       <text
-        dy={8}
+        className="bg-red-500"
+        width={"full"}
+        dy={9}
         dx={110}
         textAnchor="start"
         fill="#666" // Set the text color

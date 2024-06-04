@@ -8,6 +8,17 @@ import Survey from "./Survey";
 import Track from "./Track";
 import WorkoutProgress from "./WorkoutProgress";
 
+const components = [
+  { id: 0, component: <JourneyReflection /> },
+  { id: 1, component: <Objectives /> },
+  { id: 2, component: <WorkoutProgress /> },
+  { id: 3, component: <FitnessProgress /> },
+  { id: 4, component: <Stratigies /> },
+  { id: 5, component: <FuturePlan /> },
+  { id: 6, component: <Track /> },
+  { id: 7, component: <Survey /> },
+];
+
 const ComponentSlider = ({
   componentIndex,
   setComponentIndex,
@@ -15,17 +26,6 @@ const ComponentSlider = ({
   componentIndex: number;
   setComponentIndex: (x: number) => void;
 }) => {
-  const components = [
-    { id: 0, component: <JourneyReflection /> },
-    { id: 1, component: <Objectives /> },
-    { id: 2, component: <WorkoutProgress /> },
-    { id: 3, component: <FitnessProgress /> },
-    { id: 4, component: <Stratigies /> },
-    { id: 5, component: <FuturePlan /> },
-    { id: 6, component: <Track /> },
-    { id: 7, component: <Survey /> },
-  ];
-
   const nextComponent = () => {
     setComponentIndex(componentIndex + 1);
   };
@@ -48,7 +48,11 @@ const ComponentSlider = ({
         ))}
       </div>
       {componentIndex < components.length - 1 && (
-        <Button text="Next" changeIndex={nextComponent} />
+        <Button
+          text="Next"
+          changeIndex={nextComponent}
+          componentIndex={componentIndex}
+        />
       )}
       {componentIndex === components.length - 1 && (
         <Button text="Take Survey" />
@@ -56,7 +60,7 @@ const ComponentSlider = ({
 
       {componentIndex > 0 && (
         <div
-          className="mb-6 text-lg text-center text-lightPurple"
+          className="mb-6 text-lg text-center cursor-pointer text-lightPurple"
           onClick={previousComponent}
         >
           Back

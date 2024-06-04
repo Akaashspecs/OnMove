@@ -1,4 +1,7 @@
-import { fitnessScoreProress } from "../Utils/helpers";
+import {
+  fitnessProgressGraphData,
+  fitnessScoreProress,
+} from "../Utils/helpers";
 import Heading from "./Heading";
 import { useEffect, useState } from "react";
 import {
@@ -13,21 +16,6 @@ import { RenderCustomizedProgressLabel } from "./CustomizedProgressLabel";
 
 const FitnessProgress = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-
-  const data = [
-    { name: "FEB 1st half", uv: 0.2 },
-    { name: "FEB 2st half", uv: 1.6 },
-    { name: "MARCH 1st half", uv: 2.2 },
-    { name: "MARCH 2st half", uv: 3.8 },
-    { name: "APRIL 1st half", uv: 3.2 },
-    { name: "APRIL 2nd half", uv: 3.7 },
-    { name: "MAY 1st half", uv: 5.0 },
-    { name: "MAY 2st half", uv: 5.5 },
-    { name: "JUNE 1st half", uv: 3.8 },
-    { name: "JUNE 2st half", uv: 4.2 },
-    { name: "JULY 1st half", uv: 6.4 },
-    { name: "JULY 2nd half", uv: 7.5 },
-  ];
 
   const handleClamp = () => {
     setIsOpen(!isOpen);
@@ -64,7 +52,10 @@ const FitnessProgress = () => {
       )}
       <div className="mt-4 ">
         <ResponsiveContainer width="95%" height={200}>
-          <LineChart data={data} margin={{ top: 20, bottom: 2 }}>
+          <LineChart
+            data={fitnessProgressGraphData}
+            margin={{ top: 22, bottom: 2 }}
+          >
             <XAxis
               padding={{ left: 6 }}
               dataKey="name"
@@ -80,6 +71,7 @@ const FitnessProgress = () => {
                 position: "insideBottomLeft",
                 offset: 35,
               }}
+              tickSize={0}
               axisLine={false}
               className="mt-7"
             />
@@ -97,7 +89,7 @@ const FitnessProgress = () => {
               dataKey="uv"
               stroke="url(#gradient)"
               strokeWidth={3}
-              isAnimationActive={false}
+              isAnimationActive={true}
             >
               {" "}
             </Line>
@@ -112,7 +104,7 @@ const FitnessProgress = () => {
         {" "}
         <div dangerouslySetInnerHTML={{ __html: fitnessScoreProress }}></div>
       </div>
-      <div className={`text-textGrey  mx-4 mt-2 mb-3 `} onClick={handleClamp}>
+      <div className={`text-textGrey  mx-4 mt-2 mb-8  `} onClick={handleClamp}>
         {isOpen ? "Show Less" : "Show More"}
       </div>
     </div>

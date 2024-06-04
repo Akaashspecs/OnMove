@@ -102,3 +102,25 @@ export const TrackContent = [
 ];
 
 export const SurveyData = `<div class="text-textWhite mx-4">By following this future plan and addressing those areas for improvement, you'll be unstoppable on your quest for ultimate fitness glory! Ger ready to conquer new heights and <span class="text-lightPurple">have an absolute blast along the way, Kritika!</span> <div class="mt-3">Take our Survey <span class="italic text-xs text-textGrey">2 mins</span> to personalize your program and unlock even better results.<span class="text-lightPurple"> Your feedback helps us keep you crushing your goals!</span></div><div>`;
+
+export const workoutProgressGraphData = [
+  { name: "Jan", uv: 3 },
+  { name: "Feb", uv: 6 },
+  { name: "March", uv: 15 },
+  { name: "April", uv: 23 },
+];
+
+export const fitnessProgressGraphData = [
+  { name: "FEB 1st half", uv: 0.2 },
+  { name: "FEB 2st half", uv: 1.6 },
+  { name: "MARCH 1st half", uv: 2.2 },
+  { name: "MARCH 2st half", uv: 3.8 },
+  { name: "APRIL 1st half", uv: 3.2 },
+  { name: "APRIL 2nd half", uv: 3.7 },
+  { name: "MAY 1st half", uv: 5.0 },
+  { name: "MAY 2st half", uv: 5.5 },
+  { name: "JUNE 1st half", uv: 3.8 },
+  { name: "JUNE 2st half", uv: 4.2 },
+  { name: "JULY 1st half", uv: 6.4 },
+  { name: "JULY 2nd half", uv: 7.5 },
+];
